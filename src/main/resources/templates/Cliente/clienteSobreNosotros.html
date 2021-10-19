@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>Sobre nosotros</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div th:replace="layout/plantillaCliente :: header (vista = 'sobreNosotros')"></div>
+
+        <!-- CONTENIDO -->
+        <div class="container-fluid">
+
+            <!-- IMAGEN PRINCIPAL -->
+            <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="carousel slide" id="imagenes">
+                        <div class="carousel-inner img-fluid">
+                            <div class="carousel-item active">
+                                <img th:src="@{/img/PrincipalSobreNosotros.jpg}">
+                                <div class="carousel-caption">
+                                    <h1 class="display-3">Quiénes somos</h1>
+                                    <p>Conoce nuestra trayectoria y nuestras metas a futuro</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOBRE NOSOTROS -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- FILA 1 -->
+                    <div class="row justify-content-around mt-3">
+                        <!-- MISIÓN -->
+                        <div class="col-md-5">
+                            <div class="card text-center border-white bg-light">
+                                <div class="card-body">
+                                    <h2 class="card-title display-4">Misión</h2>
+                                    <img th:src="@{/img/mision.png}" class="img-fluid" style="width: 40%;">
+                                    <p class="card-text mt-2">
+                                        Ser una de las mejores lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
+                                        odit aliquam, cumque fuga, autem voluptas aut modi rerum, necessitatibus nesciunt ea
+                                        omnis quisquam eligendi repellendus perferendis delectus? Placeat, quasi officiis!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VISIÓN -->
+                        <div class="col-md-5">
+                            <div class="card text-center border-white bg-light">
+                                <div class="card-body">
+                                    <h2 class="card-title display-4">Visión</h2>
+                                    <img th:src="@{/img/vision.png}" class="img-fluid" style="width: 40%;">
+                                    <p class="card-text mt-2">
+                                        Nuestra expectativa es llegar al ipsum dolor sit amet consectetur adipisicing elit.
+                                        Eos
+                                        odit aliquam, cumque fuga, autem voluptas aut modi rerum, necessitatibus
+                                        nesciunt ea
+                                        omnis quisquam eligendi repellendus perferendis delectus? Placeat, quasi
+                                        officiis!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FILA 2 -->
+                    <div class="row justify-content-around mt-3">
+                        <!-- HISTORIA -->
+                        <div class="col-md-11">
+                            <div class="card border-white bg-light">
+                                <div class="card-body">
+                                    <h2 class="card-title text-center display-4">Historia</h2>
+                                    <div class="row">
+                                        <div class="col-6"><p class="card-text text-justify mt-2">
+                                                Nuestra empresa lleva funcionando desde el año Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia sunt possimus deleniti blanditiis architecto suscipit obcaecati reiciendis vitae dolore eaque id velit delectus corporis enim excepturi modi iure quas officia rerum minima natus, eius ratione. Suscipit iste quis sunt, aliquid enim veniam, nam sed quibusdam sit consectetur eius nobis quia!
+                                                Inventore odio suscipit non illo iste libero cupiditate dolor natus. Ipsum delectus porro totam cumque architecto. Tempore neque, fuga beatae voluptatum laudantium tenetur aperiam porro, repudiandae minus vel odit commodi eum itaque sequi reprehenderit illum consequatur ratione voluptatem, ipsam libero a. Quia qui quidem nulla molestiae? Excepturi iste animi natus dicta officiis tenetur illo, sit dolorem deleniti beatae fugiat magnam necessitatibus illum nobis placeat non quis! Neque molestias id voluptatibus nam nemo, tempora voluptatem iure eius perspiciatis dolore.
+                                            </p></div>
+                                        <div class="col-6"><img class="rounded img-fluid" th:src="@{/img/historia.jpg}" style="width:100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="layout/plantillaCliente :: footer"></div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

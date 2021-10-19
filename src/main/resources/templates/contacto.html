@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>Contacto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div th:replace="layout/plantillaInicio :: header (vista = 'contacto')"></div>
+
+        <!-- CONTENIDO -->
+        <div class="container-fluid">
+
+            <!-- IMAGEN PRINCIPAL -->
+            <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="carousel slide" id="imagenes">
+                        <div class="carousel-inner img-fluid">
+                            <div class="carousel-item active">
+                                <img th:src="@{/img/PrincipalContacto.jpg}">
+                                <div class="carousel-caption">
+                                    <h1 class="display-3">Contacto</h1>
+                                    <p>Comunícate directamente con nosotros para mayor información</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOBRE NOSOTROS -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- FILA 1 -->
+                    <div class="row justify-content-around mt-3">
+                        <!-- INFORMACIÓN -->
+                        <div class="col-md-3">
+                            <div class="card border-white bg-light" style="height: 100%;">
+                                <div class="card-body">
+                                    <p class="card-text mt-2">
+                                        Si deseas informarte sobre alguno de nuestros productos o los servicios técnicos que
+                                        prestamos puedes contactarnos a través de los siguientes medios o llenar el
+                                        formulario.
+                                    </p>
+                                    <p class="card-text mt-2"><b>Teléfono:</b> 333 26489</p>
+                                    <p class="card-text mt-2"><b>Celular:</b> 315 2664978</p>
+                                    <p class="card-text mt-2"><b>Correo:</b> funciontec@gmail.com</p>
+                                    <p class="card-text mt-2"><b>Dirección:</b> Calle 6 #35-16</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FORMULARIO -->
+                        <div class="col-md-7">
+                            <div class="card border-white bg-light">
+                                <div class="card-body">
+                                    <form onsubmit="return contactar()">
+                                        <label for="Nombre" class="form-label mt-2">Nombre:</label>
+                                        <input type="text" class="form-control" id="Nombre"
+                                               placeholder="Escriba su nombre..." required>
+
+                                        <label for="Correo" class="form-label mt-2">Correo electrónico:</label>
+                                        <input type="email" class="form-control" id="Correo"
+                                               placeholder="Escriba su correo electrónico..." required>
+
+                                        <label for="Telefono" class="form-label mt-2">Teléfono:</label>
+                                        <input type="tel" class="form-control" id="Telefono"
+                                               placeholder="Escriba su número de teléfono..." required>
+
+                                        <label for="Mensaje" class="form-label mt-2">Mensaje:</label>
+                                        <textarea class="form-control" id="Mensaje"
+                                                  placeholder="Escriba el mensaje que desea dejar co nosotros..."
+                                                  style="height: 200px;" required></textarea>
+
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-AzulOscuro mt-2">Enviar</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="layout/plantillaInicio :: footer"></div>
+
+        <!-- VENTANAS MODALES -->
+        <div th:replace="layout/plantillaInicio :: modales"></div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

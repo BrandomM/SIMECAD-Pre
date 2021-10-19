@@ -1,0 +1,15 @@
+.navTitulo h1{
+    text-align: left;
+    font-size: 25px;
+    border-bottom: 1px solid white;
+    color: white;
+    padding-top: 20px;
+}
+
+i{
+    padding-right: 10px;
+}
+
+.card .card-header h4{
+    color: white;
+}

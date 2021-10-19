@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>Inventario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+        <link th:href="@{/css/estiloDashboard.css}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <!-- CONTENEDOR -->
+        <div class="container-fluid">
+            <!-- HEADER -->
+            <div th:replace="layout/plantillaAdministrador :: header"></div>
+            <!-- LATERAL Y CONTENIDO -->
+            <div  class="row" style="min-height: 100vh">
+                <!-- LATERAL -->
+                <div th:replace="layout/plantillaAdministrador :: lateral (vista = 'consultar inventario')"></div>
+                <!-- CONTENIDO -->
+                <div class="col-xl-10 pb-5">
+                    <div class="container-fluid" style="width: 100%;">
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-10 text-center">
+                                <h2 class="display-4">Crear producto</h2>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end mt-5">
+                            <!-- BOTÓN REGRESAR A INVENTARIO-->
+                            <div class="col-lg-3">
+                                <a th:href="@{/AdministradorInventario}" class="col btn btn-Verde">Regresar al inventario <i class="fas fa-arrow-left"></i></a>
+                            </div>
+                        </div>
+                        <!-- PRODUCTO -->
+                        <div class="m-3">
+
+                            <form th:action="@{/AdministradorRegistrarProducto}" th:object="${producto}" method="POST" enctype="multipart/form-data">
+                                <div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-6">
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="nombre">Nombre (*)</label>
+                                                    <input th:field="*{nombre}" type="text" class="form-control" name="nombre" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="precio">Precio (*)</label>
+                                                    <input th:field="*{precio}" type="number" min="0" class="form-control" name="precio" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="estado">Estado</label>
+                                                    <select th:field="*{estado}" class="custom-select" name="estado">
+                                                        <option value="Nuevo" selected>Nuevo</option>
+                                                        <option value="Usado">Usado</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Imagen</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" accept=".jpg,.png,jpeg" name="archivo">
+                                                        <label class="custom-file-label" for="archivo">Elegir imagen</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-6">
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="descripcion">Descripción </label>
+                                                    <input th:field="*{descripcion}" type="text" class="form-control" name="descripcion">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="disponibilidad">Disponibilidad (*)</label>
+                                                    <input th:field="*{disponibilidad}" type="number" min="0" class="form-control" name="disponibilidad" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="categoria">Categoría</label>
+                                                    <input th:field="*{categoria}" type="text" class="form-control" name="categoria" list="listaCategorias" required>
+                                                    <datalist id="listaCategorias">
+                                                        <option th:each="categoria : ${listaCategorias}" th:text="${categoria}"  th:value="${categoria}">Categoria</option>
+                                                    </datalist>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-3">
+                                    <input type="submit" class="btn btn-AzulOscuro" value="Registrar" name="registrar">
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 200px;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <div th:replace="layout/plantillaAdministrador :: footer"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+</body>
+</html>

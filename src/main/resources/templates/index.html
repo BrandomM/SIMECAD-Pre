@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>SIMECAD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div th:replace="layout/plantillaInicio :: header (vista = 'inicio')"></div>
+
+        <!-- CONTENIDO -->
+        <div class="container-fluid">
+
+            <!-- CARRUSEL -->
+            <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="carousel slide" id="imagenes">
+                        <!-- INDICADORES -->
+                        <ul class="carousel-indicators">
+                            <li data-target="imagenes" data-slide-to="0"></li>
+                            <li data-target="imagenes" data-slide-to="1"></li>
+                            <li data-target="imagenes" data-slide-to="2"></li>
+                        </ul>
+                        <!-- IMAGENES -->
+                        <div class="carousel-inner img-fluid">
+                            <div class="carousel-item active">
+                                <img th:src="@{/img/carrusel1.jpg}">
+                                <div class="carousel-caption">
+                                    <h2>Reparaciones</h2>
+                                    <p>Total confiabilidad</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img th:src="@{/img/carrusel2.jpg}">
+                                <div class="carousel-caption">
+                                    <h2>Mecanismos</h2>
+                                    <p>De todo tipo</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img th:src="@{/img/carrusel3.jpg}">
+                                <div class="carousel-caption">
+                                    <h2>Herramientas</h2>
+                                    <p>En el mejor estado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONTROLES -->
+                        <a href="#imagenes" class="carousel-control-prev" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a href="#imagenes" class="carousel-control-next" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULOS -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <!-- SERVICIOS -->
+                    <div class="card text-center mt-3 p-2 border-white bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img th:src="@{/img/ModuloServicios.png}" class="img-fluid" style="height: 100%;">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Servicios técnicos</h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, saepe. Quibusdam
+                                        rem
+                                        provident esse eaque in maiores nemo laboriosam quisquam, natus asperiores dolores,
+                                        nobis
+                                        quas ab illo molestiae sapiente laborum!</p>
+                                    <a th:href="@{/Servicios}" class="btn btn-Naranja mb-3">Agendar una cita</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- VENTAS -->
+                    <div class="card text-center mt-3 p-2 border-white bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img th:src="@{/img/ModuloVentas.png}" class="img-fluid" style="height: 100%;">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Productos</h4>
+                                    <p>Esse eaque in maiores nemo laboriosam quisquam, natus asperiores dolores,
+                                        nobis
+                                        quas ab illo molestiae sapiente laborum! Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Blanditiis minima facilis eos eius assumenda ad hic, numquam,
+                                        perspiciatis suscipit ipsa maiores quisquam in. Praesentium, minima! Placeat harum
+                                        cumque laborum nisi!</p>
+                                    <a th:href="@{/Productos}" class="btn btn-AzulClaro mb-3">Hacer una compra</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SOBRE NOSOTROS -->
+                    <div class="card text-center mt-3 p-2 border-white bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img th:src="@{/img/SobreNosotros.png}" class="img-fluid" style="height: 100%;">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Sobre nosotros</h4>
+                                    <p>Esse eaque in maiores nemo laboriosam quisquam, natus asperiores dolores,
+                                        nobis
+                                        quas ab illo molestiae sapiente laborum! Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Blanditiis minima facilis eos eius assumenda ad hic, numquam,
+                                        perspiciatis suscipit ipsa maiores quisquam in. Praesentium, minima! Placeat harum
+                                        cumque laborum nisi!</p>
+                                    <a th:href="@{/SobreNosotros}" class="btn btn-Verde mb-3">Leer información</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="layout/plantillaInicio :: footer"></div>
+
+        <!-- VENTANAS MODALES -->
+        <div th:replace="layout/plantillaInicio :: modales"></div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

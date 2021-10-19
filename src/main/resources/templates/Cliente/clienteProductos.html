@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div th:replace="layout/plantillaCliente :: header (vista = 'productos')"></div>
+
+        <!-- CONTENIDO -->
+        <div class="container-fluid">
+
+            <!-- IMAGEN PRINCIPAL -->
+            <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="carousel slide" id="imagenes">
+                        <div class="carousel-inner img-fluid">
+                            <div class="carousel-item active">
+                                <img th:src="@{/img/PrincipalProductos.jpg}">
+                                <div class="carousel-caption">
+                                    <h1 class="display-3">Productos</h1>
+                                    <p>Tenemos todo tipo de repuestos para vehículos diesel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTOS -->
+            <div class="row mt-3 justify-content-center">
+                <div class="col-xl-8">
+                    <div class="row" style="min-height: 100vh">
+
+                        <div th:each="producto : ${listaProductos}" class="col-md-3 mb-4">
+
+                            <div class="card" style="width: 18rem; height: 100%;">
+                                <img th:src="${producto.imagen}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 th:text="${producto.nombre}" class="card-title">Nombre</h5>
+                                    <p th:text="'$' + ${producto.precio}" class="card-text">Precio</p>
+                                    <a href="#" class="btn btn-AzulClaro">Comprar</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="layout/plantillaCliente :: footer"></div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

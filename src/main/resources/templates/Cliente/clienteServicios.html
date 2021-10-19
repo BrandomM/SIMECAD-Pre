@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>Servicios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link th:href="@{/css/estilos.css}" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div th:replace="layout/plantillaCliente :: header (vista = 'servicios')"></div>
+
+        <!-- CONTENIDO -->
+        <div class="container-fluid">
+
+            <!-- IMAGEN PRINCIPAL -->
+            <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="carousel slide" id="imagenes">
+                        <div class="carousel-inner img-fluid">
+                            <div class="carousel-item active">
+                                <img th:src="@{/img/PrincipalServicios.jpg}">
+                                <div class="carousel-caption">
+                                    <h1 class="display-3">Servicios técnicos</h1>
+                                    <p>Reparamos cualquier inconveniente que presente tu vehículo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICIOS -->
+            <div class="container mt-5">
+                <!-- FECHA -->
+                <div class="row mt-10 justify-content-around">
+                    <div class="col">
+                        <label for="Fecha" class="form-label"><b>Fecha deseada</b></label>
+                        <input id="Fecha" class="form-control" type="date">
+                        <button href="#" type="button" class="btn btn-AzulOscuro mt-5">Consultar disponibilidad</button>
+                    </div>
+                </div>
+
+                <!-- OPCIONES -->
+                <div class="row mt-5">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table" id="horarios">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Horas (Formato 24 horas)</th>
+                                        <th scope="col">Viernes 12/03/21</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">7:00 am</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7:45 am</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">11:15 am</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">11:30 am</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">12:15 pm</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1:30 pm</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2:45 pm</th>
+                                        <td><button type="button" class="btn btn-AzulOscuro" onclick="agendar()">Agendar
+                                                cita</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div th:replace="layout/plantillaCliente :: footer"></div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

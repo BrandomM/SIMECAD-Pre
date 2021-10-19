@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<htmln xmlns:th="http://www.thymeleaf.org"></htmln>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+
+        <!-- HEADER -->
+        <div th:fragment="header" class="row">
+            <div class="col p-0">
+                <nav class="navbar navbar-expand-xl bg-AzulOscuro navbar-dark">
+                    <a th:href="@{/AdministradorPrincipal}"><img th:src="@{/img/Logotipo.png}" style="height: 60px;"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Menu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="Menu">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="" th:text="${usuarioLog.primerNombre} + ' ' + ${usuarioLog.segundoNombre} + ' ' + ${usuarioLog.primerApellido} + ' ' + ${usuarioLog.segundoApellido}" class="nav-link">Rol</a>
+                            </li>
+                            <li>
+                                <img th:src="${usuarioLog.imagen}"
+                                     style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; background-color: white;">
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/}" class="nav-link">Cerrar sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- BARRA LATERAL -->
+        <div th:fragment="lateral (vista)" class="col-xl-2 p-0">
+            <nav class="d-xl-block collapse bg-AzulClaro navbar-dark pl-4" id="Menu" style="height: 100%;">
+                <!-- ADMINISTRADOR -->
+                <div class="navTitulo">
+                    <h1>Principal administrador</h1>
+                </div>
+                <div class="navbar-nav">
+                    <li class="nav-item" th:classappend="${vista == 'notificaciones y estadisticas' ? 'active' : ''}"><a class="nav-link" th:href="@{/AdministradorPrincipal}"><i
+                                class="fas fa-chart-line"></i>Notificaciones y estadísticas</a></li>
+                </div>
+                <!-- SERVICIOS -->
+                <div class="navTitulo">
+                    <h1>Citas y servicios</h1>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item" th:classappend="${vista == 'consultar solicitudes de citas' ? 'active' : ''}"><a class="nav-link" th:href="@{/}"><i
+                                class="fas fa-calendar-alt"></i>Consultar
+                            solicitudes de citas</a></li>
+                    <li class="nav-item" th:classappend="${vista == 'historial de servicios' ? 'active' : ''}"><a class="nav-link" th:href="@{/}"><i
+                                class="fas fa-calendar-week"></i>Historial
+                            de servicios</a></li>
+                </ul>
+                <!-- VENTAS-->
+                <div class="navTitulo">
+                    <h1>Ventas e inventario</h1>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item" th:classappend="${vista == 'consultar inventario' ? 'active' : ''}"><a class="nav-link" th:href="@{/AdministradorInventario}"><i
+                                class="fas fa-truck-moving"></i>Consultar inventario</a></li>
+                    <li class="nav-item" th:classappend="${vista == 'consultar solicitudes de compras' ? 'active' : ''}"><a class="nav-link" th:href="@{/}"><i
+                                class="fas fa-piggy-bank"></i>Consultar solicitudes de compras</a></li>
+                    <li class="nav-item" th:classappend="${vista == 'historial de ventas' ? 'active' : ''}"><a class="nav-link" th:href="@{/}"><i
+                                class="fas fa-money-check-alt"></i>Historial de ventas</a></li>
+                </ul>
+                <!-- USUARIOS -->
+                <div class="navTitulo">
+                    <h1>Usuarios</h1>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item" th:classappend="${vista == 'consultar usuarios' ? 'active' : ''}"><a class="nav-link" th:href="@{/AdministradorUsuarios}"><i
+                                class="fas fa-user"></i>Consultar
+                            usuarios</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+        <!-- FOOTER -->
+        <div th:fragment="footer" class="conainer-fluid text-center p-3 bg-AzulOscuro text-white">
+            <div class="row justify-content-around">
+                <div class="col-md-3">
+                    <p style="vertical-align: middle; margin: 0 auto;">SOMOS BISMUTO SOFTWARE</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">Webs corporativas</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">Páginas web a medida</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">Tiendas online</p>
+                </div>
+                <div class="col-md-3">
+                    <p style="vertical-align: middle; margin: 0 auto;">SIMECAD es una marca registrada. ©2020</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">Desarrollado para Funciones Técnicas Diesel</p>
+                </div>
+                <div class="col-md-3">
+                    <p style="vertical-align: middle; margin: 0 auto;">CONTACTO</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">www.bissoft.com</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">bissoft@gmail.com</p>
+                    <p style="vertical-align: middle; margin: 0 auto;">Tel: 36666599</p>
+                </div>
+            </div>
+        </div>
+
+        <style th:fragment="datatablesCSS" th:remove="tag">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+        </style>
+
+        <div th:fragment="datatablesScripts" th:remove="tag">
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+            <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+        </div>
+
+    </body>
+</html>
